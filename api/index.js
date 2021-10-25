@@ -1,42 +1,24 @@
-const express = require('express');
-const User = require('./models/User');
+const express = require("express");
+const UserRouter = require("./routes/user");
 
 const app = express();
 
 app.use(express.json());
-
-app.get('/users', (req, res) => {
-  User.findAll().then((data) => res.json(data));
-});
-
-app.post('/users', (req, res) => {
-  User.create(req.body).then((data) => res.status(201).json(data));
-});
-
-app.get('/users/:id', (req, res) => {
-  const { id } = req.params;
-  User.findByPk(id).then((data) => res.json(data));
-});
-
-app.put('/users/:id', (req, res) => {
-  const { id } = req.params;
-
-  User.update(req.body, {
-    where: {
-      id,
-    },
-    returning: true,
-  }).then(([, [data]]) => res.json(data));
-});
-
-app.delete('/users/:id', (req, res) => {
-  const { id } = req.params;
-
-  User.destroy({
-    where: { id },
-  }).then(() => res.sendStatus(204));
-});
+app.use(UserRouter);
 
 app.listen(3000, () => {
-  console.log('Server listening on port 3000');
+  console.log("Server listening on port 3000");
 });
+
+//const obj1 = { foo: "bar" };
+//const obj2 = { foobar: "toto" };
+
+// Restructuration de l'objet
+//const obj3 = Object.assign({}, obj1, obj2);
+//const obj4 = { ...obj1, ...obj2 };
+
+// Destructuration de l'objet
+//const { foobar, ...obj5 } = obj4;
+//const foobar = obj4.foobar;
+//const obj5 = Object.assign({},obj4);
+//delete obj5.foobar;
