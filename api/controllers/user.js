@@ -3,7 +3,7 @@ const User = require("../models/User");
 const UserController = {};
 
 UserController.getUsers = (req, res) => {
-  return User.findAll(req.query).then((data) => res.json(data));
+  return User.findAll({ where: req.query }).then((data) => res.json(data));
 };
 
 UserController.post = (req, res) => {

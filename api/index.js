@@ -6,10 +6,6 @@ const app = express();
 app.use(express.json());
 app.use(UserRouter);
 
-app.listen(3000, () => {
-  console.log("Server listening on port 3000");
-});
-
 //const obj1 = { foo: "bar" };
 //const obj2 = { foobar: "toto" };
 
@@ -22,3 +18,4 @@ app.listen(3000, () => {
 //const foobar = obj4.foobar;
 //const obj5 = Object.assign({},obj4);
 //delete obj5.foobar;
+module.exports = app;

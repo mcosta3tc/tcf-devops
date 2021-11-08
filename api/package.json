@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon server.js",
     "test": "jest"
   },
   "author": "",
@@ -21,6 +21,7 @@
     "eslint-plugin-import": "^2.24.2",
     "jest": "^27.3.1",
     "nodemon": "^2.0.13",
-    "sinon": "^11.1.2"
+    "sinon": "^11.1.2",
+    "supertest": "^6.1.6"
   }
 }
