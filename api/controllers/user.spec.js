@@ -1,15 +1,15 @@
-const UserController = require("./user");
-const User = require("../models/user");
+const UserController = require('./user');
+const User = require('../models/User');
 
 const findAllResult = [{}];
-jest.mock("../models/User", () => {
-  return {
-    findAll: jest.fn().mockResolvedValue(findAllResult),
-  };
-});
+jest.mock('../models/User', () => ({
+  findAll: jest.fn().mockResolvedValue(findAllResult),
+}));
 
-describe("user test", () => {
-  let res, req;
+describe('user test', () => {
+  let res;
+  let
+    req;
   beforeEach(() => {
     res = {
       json: jest.fn(),
@@ -21,7 +21,7 @@ describe("user test", () => {
     };
   });
 
-  it("should return users", async () => {
+  it('should return users', async () => {
     await UserController.getUsers(req, res);
 
     expect(User.findAll).toHaveBeenCalledWith(req.query);
