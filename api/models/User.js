@@ -6,8 +6,15 @@ connection.authenticate().then(() => console.log("Database connected"));
 class User extends Sequelize.Model {}
 User.init(
   {
-    email: Sequelize.DataTypes.STRING,
-    password: Sequelize.DataTypes.STRING,
+    email: {
+      type: Sequelize.DataTypes.STRING,
+      validate: {
+        isEmail,
+      },
+    },
+    password: {
+      type: Sequelize.DataTypes.STRING,
+    },
     lastname: Sequelize.DataTypes.STRING,
     firstname: Sequelize.DataTypes.STRING,
   },
