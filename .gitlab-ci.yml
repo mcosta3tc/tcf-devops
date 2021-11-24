@@ -32,7 +32,7 @@ deploy:
     - env
     - echo "Deployed"
   rules:
-    - if: $CI_COMMIT_MESSAGE =~ /_WIP_/
+    - if: $CI_COMMIT_MESSAGE =~ /WIP/
       when: never
 
 notify:
