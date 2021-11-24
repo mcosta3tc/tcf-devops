@@ -32,7 +32,7 @@ deploy:
     - env
     - echo "Deployed"
   rules:
-    - if: $CI_COMMIT_MESSAGE != *"WIP"*
+    - if: $CI_COMMIT_MESSAGE =~ /WIP/
 
 notify:
   stage: stage3
