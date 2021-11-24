@@ -26,6 +26,12 @@ test:
     - apt-get install -y postgresql-client
     - psql -h db -U postgres -c "SELECT 1"
 
+pre_deploy:
+  stage: stage3
+  script:
+    - env
+    - [ $CI_COMMIT_MESSAGE =~ /WIP/ ] && echo "WIP" || echo "Not WIP"
+
 deploy:
   stage: stage3
   script:
