@@ -8,6 +8,7 @@ app.use(UserRouter);
 
 //const obj1 = { foo: "bar" };
 //const obj2 = { foobar: "toto" };
+//const obj2 = { foobar: "toto" };
 
 // Restructuration de l'objet
 //const obj3 = Object.assign({}, obj1, obj2);
