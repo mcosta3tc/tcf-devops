@@ -15,6 +15,7 @@ test:
   variables:
     POSTGRES_PASSWORD: "mysecretpassword"
     DATABASE_URL: postgres://postgres:mysecretpassword@db:5432/postgres
+    PGPASSWORD: mysecretpassword
   services:
     - name: postgres
       alias: db
