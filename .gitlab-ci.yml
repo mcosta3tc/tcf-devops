@@ -33,6 +33,7 @@ deploy:
     - echo "Deployed"
   rules:
     - if: $CI_COMMIT_MESSAGE =~ /WIP/
+      when: never
 
 notify:
   stage: stage3
