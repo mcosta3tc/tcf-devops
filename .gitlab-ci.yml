@@ -31,3 +31,10 @@ deploy:
   script:
     - env
     - echo "Deployed"
+  rules:
+    - if: $CI_COMMIT_MESSAGE != *"WIP"*
+
+notify:
+  stage: stage3
+  script:
+    - echo discord_push "Deployed"
