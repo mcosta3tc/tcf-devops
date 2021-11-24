@@ -30,7 +30,7 @@ pre_deploy:
   stage: stage3
   script:
     - env
-    - [ $CI_COMMIT_MESSAGE =~ /WIP/ ] && echo "WIP" || echo "Not WIP"
+    - sh -c "[ $CI_COMMIT_MESSAGE =~ /WIP/ ] && echo 'WIP' || echo 'Not WIP'"
 
 deploy:
   stage: stage3
