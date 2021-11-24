@@ -30,6 +30,8 @@ deploy:
   stage: stage3
   script:
     - env
+    - echo $DATABASE_URL_PROD
+    - TEST=$DATABASE_URL_PROD; echo $TEST
     - echo "Deployed"
   rules:
     - if: $CI_COMMIT_MESSAGE =~ /WIP/
