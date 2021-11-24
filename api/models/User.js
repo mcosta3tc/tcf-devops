@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-const connection = new Sequelize("postgres://root:password@localhost:5432/db");
+const connection = new Sequelize(process.env.DATABASE_URL);
 connection.authenticate().then(() => console.log("Database connected"));
 
 class User extends Sequelize.Model {}

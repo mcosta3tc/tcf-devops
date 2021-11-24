@@ -1,0 +1,31 @@
+stages:
+  - stage1
+  - stage2
+  - stage3
+
+image: busybox:latest
+
+build:
+  stage: stage1
+  script:
+    - echo "Hello World"
+
+test:
+  stage: stage2
+  variables:
+    POSTGRES_PASSWORD: "mysecretpassword"
+    DATABASE_URL: postgres://postgres:mysecretpassword@db:5432/postgres
+  services:
+    - name: postgresql
+      alias: db
+  script:
+    - echo $POSTGRES_PASSWORD
+    - echo $DATABASE_URL
+    - apt-get install -y postgresql-client
+    - psql -h db -U postgres -c "SELECT 1"
+
+deploy:
+  stage: stage3
+  script:
+    - env
+    - echo "Deployed"
