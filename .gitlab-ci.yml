@@ -16,7 +16,7 @@ test:
     POSTGRES_PASSWORD: "mysecretpassword"
     DATABASE_URL: postgres://postgres:mysecretpassword@db:5432/postgres
   services:
-    - name: postgresql
+    - name: postgres
       alias: db
   script:
     - echo $POSTGRES_PASSWORD
