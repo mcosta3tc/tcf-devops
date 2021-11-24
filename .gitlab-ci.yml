@@ -21,6 +21,7 @@ test:
   script:
     - echo $POSTGRES_PASSWORD
     - echo $DATABASE_URL
+    - apt-get update
     - apt-get install -y postgresql-client
     - psql -h db -U postgres -c "SELECT 1"
 
